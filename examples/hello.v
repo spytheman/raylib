@@ -6,9 +6,9 @@ const white = Color{255, 255, 255, 255}
 const blue = Color{0, 0, 200, 255}
 
 @[export: 'android_run']
-fn run() {
+fn main() {
 	init_window(screen_width, screen_height, 'Example of using V and Raylib together')
-	defer { 	close_window() }
+	defer { close_window() }
 	set_target_fps(60)
 	for !window_should_close() {
 		begin_drawing()
@@ -16,8 +16,4 @@ fn run() {
 		clear_background(white)
 		draw_text('Hello from V and Raylib.', 160, 270, 40, blue)
 	}
-}
-
-fn main() {
-	run()
 }
