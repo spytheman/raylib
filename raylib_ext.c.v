@@ -18,13 +18,11 @@ module raylib
 // test	
 #flag android -I@VMODROOT/android-ext/native_app_glue
 $if android {
-    #include "android_native_app_glue.c"
+	#include "android_native_app_glue.c"
 }
 
-
-
 // See https://github.com/raysan5/raylib/wiki/Working-for-Web-(HTML5) for instructions on how to build/compile
-// programs targeting browsers, using the emscripten toolchain. The options here are 
+// programs targeting browsers, using the emscripten toolchain. The options here are
 #flag wasm32_emscripten -sUSE_GLFW=3
 #flag wasm32_emscripten -sASYNCIFY
 #flag wasm32_emscripten -sEXPORTED_RUNTIME_METHODS=ccall

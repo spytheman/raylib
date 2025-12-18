@@ -4130,8 +4130,8 @@ fn C.LoadFontFromMemory(&char, &u8, int, int, &int, int) Font
 // Load font from memory buffer, fileType refers to extension: i.e. '.ttf'
 @[inline]
 pub fn load_font_from_memory(file_type string, file_data &u8, data_size int, font_size int, codepoints &int, codepoint_count int) Font {
-	return C.LoadFontFromMemory(&char(file_type.str), file_data, data_size, font_size, codepoints,
-		codepoint_count)
+	return C.LoadFontFromMemory(&char(file_type.str), file_data, data_size, font_size,
+		codepoints, codepoint_count)
 }
 
 fn C.IsFontValid(Font) bool
@@ -4212,7 +4212,8 @@ fn C.DrawTextPro(Font, &char, Vector2, Vector2, f32, f32, f32, Color)
 // Draw text using Font and pro parameters (rotation)
 @[inline]
 pub fn draw_text_pro(font Font, text string, position Vector2, origin Vector2, rotation f32, font_size f32, spacing f32, tint Color) {
-	C.DrawTextPro(font, &char(text.str), position, origin, rotation, font_size, spacing, tint)
+	C.DrawTextPro(font, &char(text.str), position, origin, rotation, font_size, spacing,
+		tint)
 }
 
 fn C.DrawTextCodepoint(Font, int, Vector2, f32, Color)
@@ -5656,4 +5657,3 @@ fn C.DetachAudioMixedProcessor(AudioCallback)
 pub fn detach_audio_mixed_processor(processor AudioCallback) {
 	C.DetachAudioMixedProcessor(processor)
 }
-
